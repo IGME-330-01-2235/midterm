@@ -1,0 +1,29 @@
+/* No need to edit this file. */
+html {
+  background-color: #0d743b;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+div {
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Arial';
+  text-align: right;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 12px;
+}
+
+p {
+  font-size: 24px;
+}
+
+canvas {
+  border: 3px solid black;
+}
