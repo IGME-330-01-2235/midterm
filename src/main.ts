@@ -13,36 +13,63 @@ canvas.height = 600;
 const name = document.querySelector('#studentName') as HTMLParagraphElement;
 name.innerText = 'Joe Pietruch';
 
-// Step 4 - Draw the Canvas
+// Step 4 - Draw the Canvas (refactored into methods for Step 5)
 
 // get the context
 const context = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-// clear the background
-context.fillStyle = 'white';
-context.fillRect(0, 0, 600, 600);
+// Step 5A - Pattern
+let pattern: CanvasPattern;
+const patternImg = new Image();
 
-// draw the circle
-context.translate(300, 300);
-context.strokeStyle = 'black';
-context.lineWidth = 1;
-context.arc(0, 0, 75, 0, 2 * Math.PI);
-context.stroke();
+patternImg.onload = () => {
+  pattern = context.createPattern(patternImg, 'repeat') as CanvasPattern;
+};
 
-// draw the text
-context.translate(25, 20);
-context.fillStyle = 'black';
-context.font = '14px Arial';
-context.fillText('A', 0, 0);
+patternImg.src = './assets/pattern.png';
 
-context.rotate(Math.PI / 2);
-context.font = '28px Arial';
-context.fillText('A', 0, 0);
+const clear = () => {
+  context.resetTransform();
+  if (pattern) {
+    context.fillStyle = pattern;
+  } else {
+    context.fillStyle = 'white';
+  }
 
-context.rotate(Math.PI / 2);
-context.font = '56px Arial';
-context.fillText('A', 0, 0);
+  context.fillRect(0, 0, 600, 600);
+};
 
-context.rotate(Math.PI / 2);
-context.font = '112px Arial';
-context.fillText('A', 0, 0);
+const draw = () => {
+  // draw the circle
+  context.translate(300, 300);
+  context.strokeStyle = pattern ? 'white' : 'black';
+  context.lineWidth = 1;
+  context.arc(0, 0, 75, 0, 2 * Math.PI);
+  context.stroke();
+
+  // draw the text
+  context.translate(25, 20);
+  context.fillStyle = pattern ? 'white' : 'black';
+  context.font = '14px Arial';
+  context.fillText('A', 0, 0);
+
+  context.rotate(Math.PI / 2);
+  context.font = '28px Arial';
+  context.fillText('A', 0, 0);
+
+  context.rotate(Math.PI / 2);
+  context.font = '56px Arial';
+  context.fillText('A', 0, 0);
+
+  context.rotate(Math.PI / 2);
+  context.font = '112px Arial';
+  context.fillText('A', 0, 0);
+};
+
+const render = () => {
+  clear();
+  draw();
+  requestAnimationFrame(render);
+};
+
+render();
