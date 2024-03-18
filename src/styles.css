@@ -16,3 +16,12 @@ body {
   text-align: center;
   color: #5dc48b;
 }
+
+/* Step 5C */
+canvas {
+  transition: transform 0.7s ease-in-out;
+}
+
+canvas.tapped {
+  transform: rotate(90deg);
+}

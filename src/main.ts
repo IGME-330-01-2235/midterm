@@ -101,3 +101,8 @@ const render = () => {
 };
 
 render();
+
+// Step 5C - Click to Rotate
+canvas.addEventListener('click', () => {
+  canvas.classList.toggle('tapped');
+});
