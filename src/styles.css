@@ -1,1 +1,9 @@
 /* Write your additional styles here! */
+
+/* Step 2 - Page Layout */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
