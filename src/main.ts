@@ -8,3 +8,7 @@ import './styles.css'; // write your additional styles there
 const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
 canvas.width = 600;
 canvas.height = 600;
+
+// Step 3 - Sign Your Name
+const name = document.querySelector('#studentName') as HTMLParagraphElement;
+name.innerText = 'Joe Pietruch';
