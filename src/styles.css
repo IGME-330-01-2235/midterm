@@ -7,3 +7,12 @@ body {
   justify-content: center;
   gap: 24px;
 }
+
+/* Step 5A & 5B */
+.instruction {
+  font-size: 12px;
+  text-transform: none;
+  font-style: italic;
+  text-align: center;
+  color: #5dc48b;
+}
